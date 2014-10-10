@@ -2,18 +2,18 @@ API Reference.
 
 
 * Core
-  * `Gyokou.filter(statment)`
-  * `Gyokou.order(orderBy)`
-  * `Gyokou.fetch()`
-  * `Gyokou.limit(num)`
-  * `Gyokou.get(key)`
-  * `Gyokou.len()`
-  * `Gyokou.save(data)`
-  * `Gyokou.update(data)`
-  * `Gyokou.del(data)`
-  * `Gyokou.extends(kls)`
-  * `Gyokou.setGlobalConfig(config)`
-  * `options`
+  - [`Gyokou.filter(statment)`](#gyokoufilterstatement---gyokou)
+  - [`Gyokou.order(orderBy)`](#gyokouorderorderby---gyokou)
+  - [`Gyokou.fetch()`](#gyokoufetch---promise)
+  - [`Gyokou.limit(num)`](#gyokoulimitnum---promise)
+  - [`Gyokou.get(key)`](#gyokougetkey---gyokouinstance)
+  - [`Gyokou.len()`](#gyokoulen---promise)
+  - [`Gyokou.save(data)`](#gyokousavedata---promise)
+  - [`Gyokou.update(data)`](#gyokouupdatedata---promise)
+  - [`Gyokou.del(data)`](#gyokoudelkey---promise)
+  - [`Gyokou.extends(kls)`](#gyokouextendskls)
+  - [`Gyokou.setGlobalConfig(config)`](#gyokousetglobalconfigconfig)
+  - [`options`](#options)
 
 
 ##Core
@@ -30,7 +30,7 @@ Gyokou
 
 -------
 
-##### `Gyokou.order(orderBy)` -> 'Gyokou'
+##### `Gyokou.order(orderBy)` -> `Gyokou`
 
 クエリの戻り値の並び順を指定します。
 
@@ -42,7 +42,7 @@ Gyokou
 
 -------
 
-##### `Gyokou.fetch()` -> 'Promise'
+##### `Gyokou.fetch()` -> `Promise`
 
 クエリから結果を取得します。
 
@@ -60,7 +60,7 @@ Gyokou
 
 --------
 
-##### `Gyokou.limit(num)` -> 'Promise'
+##### `Gyokou.limit(num)` -> `Promise`
 
 クエリから指定した件数を取得します。
 
@@ -189,6 +189,8 @@ class BassModel
 Gyokou.extends BassModel
 ```
 
+**memo:** 中に仕舞いこみたい
+
 --------
 
 ##### `Gyokou.setGlobalConfig(config)`
@@ -203,4 +205,10 @@ Gyokou.setGlobalConfig
   api_prefix: '/api'
 ```
 
+----------
+
+
+##### options
+
+オプション〜
 
