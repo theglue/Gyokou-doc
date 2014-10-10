@@ -13,11 +13,12 @@ API Reference.
   * `Gyokou.del(data)`
   * `Gyokou.extends(kls)`
   * `Gyokou.setGlobalConfig(config)`
+  * `options`
 
 
 ##Core
 
-`Gyokou.filter(statement)` -> `Gyokou`
+##### `Gyokou.filter(statement)` -> `Gyokou`
 
 指定された条件で検索をかけます。
 
@@ -29,7 +30,7 @@ Gyokou
 
 -------
 
-`Gyokou.order(orderBy)` -> 'Gyokou'
+##### `Gyokou.order(orderBy)` -> 'Gyokou'
 
 クエリの戻り値の並び順を指定します。
 
@@ -41,7 +42,7 @@ Gyokou
 
 -------
 
-`Gyokou.fetch()` -> 'Promise'
+##### `Gyokou.fetch()` -> 'Promise'
 
 クエリから結果を取得します。
 
@@ -59,7 +60,7 @@ Gyokou
 
 --------
 
-`Gyokou.limit(num)` -> 'Promise'
+##### `Gyokou.limit(num)` -> 'Promise'
 
 クエリから指定した件数を取得します。
 
@@ -77,7 +78,7 @@ Gyokou
 
 --------
 
-`Gyokou.get(key)` -> `Gyokou(instance)`
+##### `Gyokou.get(key)` -> `Gyokou(instance)`
 
 指定したキーのインスタンスを取得します。
 
@@ -87,7 +88,7 @@ Gyokou.get id=1
 
 --------
 
-`Gyokou.len()` -> `Promise`
+##### `Gyokou.len()` -> `Promise`
 
 指定したクエリの件数を取得します。
 
@@ -105,7 +106,7 @@ Gyokou
 
 --------
 
-`Gyokou.save(data)` -> `Promise`
+##### `Gyokou.save(data)` -> `Promise`
 
 指定したデータを作成します。
 
@@ -127,7 +128,7 @@ Gyokou
 
 --------
 
-`Gyokou.update(data)` -> `Promise`
+##### `Gyokou.update(data)` -> `Promise`
 
 指定したデータを保存します。
 
@@ -150,7 +151,7 @@ Gyokou
 
 --------
 
-`Gyokou.del(key)` -> `Promise`
+##### `Gyokou.del(key)` -> `Promise`
 
 指定された条件のデータを削除します。
 
@@ -168,7 +169,7 @@ then (result) ->
 
 --------
 
-`Gyokou.extends(kls)`
+##### `Gyokou.extends(kls)`
 
 指定されたクラスに Gyokou が保持しているクラスメソッドを継承します。
 
@@ -190,7 +191,7 @@ Gyokou.extends BassModel
 
 --------
 
-`Gyokou.setGlobalConfig(config)`
+##### `Gyokou.setGlobalConfig(config)`
 
 全体に関する設定を実行します。
 Gyokou を継承している全てのモデルに影響を及ぼします。
