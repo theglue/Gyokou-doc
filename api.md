@@ -12,6 +12,7 @@ API Reference.
   * `Gyokou.update(data)`
   * `Gyokou.del(data)`
   * `Gyokou.extends(kls)`
+  * `Gyokou.setGlobalConfig(config)`
 
 
 ##Core
@@ -185,6 +186,20 @@ class BassModel
       type: 'number'
 
 Gyokou.extends BassModel
+```
+
+--------
+
+`Gyokou.setGlobalConfig(config)`
+
+全体に関する設定を実行します。
+Gyokou を継承している全てのモデルに影響を及ぼします。
+
+```coffeescript
+Gyokou.setGlobalConfig
+  api_host: 'www.example.com'
+  api_port: '3000'
+  api_prefix: '/api'
 ```
 
 
