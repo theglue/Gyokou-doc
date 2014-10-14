@@ -1,4 +1,5 @@
 API Reference.
+------------
 
 
 * Core
@@ -14,6 +15,10 @@ API Reference.
   - [`Gyokou.extends(kls)`](#gyokouextendskls)
   - [`Gyokou.setGlobalConfig(config)`](#gyokousetglobalconfigconfig)
   - [`options`](#options)
+* Options
+  - [`Gyokou.ddl`]()
+  - [`Gyokou.TABLE_NAME`]()
+  - [`Gyokou.xhrConfig`]()
 
 
 ##Core
@@ -83,7 +88,7 @@ Gyokou
 指定したキーのインスタンスを取得します。
 
 ```coffeescript
-Gyokou.get id=1
+Gyokou.get 1
 ```
 
 --------
@@ -157,7 +162,7 @@ Gyokou
 
 ```coffeescript
 Gyokou
-.del id=1
+.del 1
 then (result) ->
   console.log 'success'
   return
@@ -200,15 +205,100 @@ Gyokou を継承している全てのモデルに影響を及ぼします。
 
 ```coffeescript
 Gyokou.setGlobalConfig
-  api_host: 'www.example.com'
-  api_port: '3000'
-  api_prefix: '/api'
+  api:
+    host: 'www.example.com'
+    port: '3000'
+    prefix: '/api'
+    beforeRequest: (ctx) ->
+      #do something.
+      return
+    afterRequest: (ctx) ->
+      #do something.
+      return
+  local:
+    store: LSStore
+    prefix: 'example-prefix'
+    lazyQuery: false
 ```
+
+**memo:** Configクラス作る?
 
 ----------
 
+##### `Gyokou.getGlobalConfig()` -> `Object`
+
+現在の全体設定を返します。
+
+----------
 
 ##### options
 
-オプション〜
+各クラスの設定
+
+[Options]() の項目を参照。
+
+-------
+
+
+##Options
+
+Gyokou を継承してモデルを定義するときに指定するオプション。
+
+##### `Gyokou.TABLE_NAME` 
+
+ローカルデータストアに蓄積するときのテーブル名
+
+```coffeescript
+class ExampleModel
+  @TABLE_NAME: 'ExampleModel'
+```
+
+-----------
+
+##### `Gyokou.ddl`
+
+モデルのデータ構造を定義します。
+
+```coffeescript
+class ExampleModel
+  @ddl:
+    id: 
+      type: 'int'
+      key: true
+    size:
+      type: 'number'
+    weight:
+      type: 'number'
+```
+
+##### `Gyokou.xhrConfig`
+
+モデルが通信する API との通信に関する設定を行います。
+
+```coffeescript
+class ExampleModel
+  @xhrConfig:
+    prefix: 'example'
+    actions:
+      get: 
+        method: 'GET'
+      post: 
+        method: 'POST'
+      put:
+        method: 'POST'
+        url: 'example/update'
+      delete:
+        method: 'DELETE'
+    beforeRequest: (ctx) ->
+      #do something.
+      return
+    afterRequest: (ctx) ->
+      #do something
+      return
+```
+
+**memo:** XHRConfig クラスとか作ってそいつを投げるようにしたほうがすっきりはするかもしれない(ネスト深くなるし。)
+
+
+
 
