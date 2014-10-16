@@ -3,6 +3,7 @@ API Reference.
 
 
 * Core
+  - [`Gyokou(struct, options)`]()
   - [`Gyokou.filter(statment)`](#gyokoufilterstatement---gyokou)
   - [`Gyokou.order(orderBy)`](#gyokouorderorderby---gyokou)
   - [`Gyokou.fetch()`](#gyokoufetch---promise)
@@ -12,7 +13,6 @@ API Reference.
   - [`Gyokou.save(data)`](#gyokousavedata---promise)
   - [`Gyokou.update(data)`](#gyokouupdatedata---promise)
   - [`Gyokou.del(data)`](#gyokoudelkey---promise)
-  - [`Gyokou.extends(kls)`](#gyokouextendskls)
   - [`Gyokou.setGlobalConfig(config)`](#gyokousetglobalconfigconfig)
   - [`options`](#options)
 * Options
@@ -22,6 +22,29 @@ API Reference.
 
 
 ##Core
+
+##### `Gyokou(struct, options)` -> `Gyokou`
+
+Gyokou Model クラスを定義します。
+
+```coffeescript
+class Bass
+  id: 'int'
+  size: 'int'
+  weight: 'int'
+  lure: 'string'
+  created_at: 'date'
+  updated_at: 'date'
+
+opts = 
+  key: 'id'
+  api:
+    prefix: '/bass'
+
+Bass = Gyokou Bass, opts
+
+```
+
 
 ##### `Gyokou.filter(statement)` -> `Gyokou`
 
